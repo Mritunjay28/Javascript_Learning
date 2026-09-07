@@ -1,0 +1,10 @@
+{
+  "name": "javascript-from-first-principles",
+  "version": "1.0.0",
+  "description": "Interactive first-principles engineering reference for JavaScript with zero-command in-browser code runner",
+  "main": "assets/js/app.js",
+  "scripts": {
+    "start": "node -e \"const http = require('http'), fs = require('fs'), path = require('path'), m = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml'}; http.createServer((q,r)=>{ let u=q.url.split('?')[0]; if(u==='/') u='/index.html'; let p=path.join(__dirname,u); fs.readFile(p,(e,c)=>{ if(e){ r.writeHead(404); r.end('Not found'); } else { r.writeHead(200,{'Content-Type':m[path.extname(p)]||'text/plain'}); r.end(c); } }); }).listen(3000,()=>console.log('Server started: http://localhost:3000/'));\"",
+    "build": "node scripts/build-chapters.js"
+  }
+}

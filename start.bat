@@ -1,0 +1,3 @@
+@echo off
+echo Opening JavaScript from First Principles...
+start "" "%~dp0index.html"
